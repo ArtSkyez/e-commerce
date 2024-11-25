@@ -42,7 +42,7 @@ function loadFeaturedProducts() {
             <img src="${product.image}" alt="${product.name}">
             <h3>${product.name}</h3>
             <p>Price: $${product.price}</p>
-            <a href="product.html?id=${product.id}">View Details</a>
+            <a href="product.html?id=${product.id}" class="view-details">View Details</a>
         `;
     container.appendChild(productDiv);
   });
@@ -77,7 +77,7 @@ function loadProductList() {
             <img src="${product.image}" alt="${product.name}">
             <h3>${product.name}</h3>
             <p>Price: $${product.price}</p>
-            <a href="product.html?id=${product.id}">View Details</a>
+            <a href="product.html?id=${product.id}" class="view-details">View Details</a>
         `;
     container.appendChild(productDiv);
   });
@@ -143,5 +143,6 @@ function removeFromCart(productId) {
   let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
   cartItems = cartItems.filter((item) => item.id !== productId);
   localStorage.setItem("cart", JSON.stringify(cartItems));
+  alert("Product removed to cart");
   loadCartItems();
 }
